@@ -11,13 +11,13 @@ parameters {
 
 transformed parameters {
   real lambda[N];
-  for (n in 1:N)
-    lambda[n] = b[1] + b[2]*X[n] + b[3]*f[n];
+  for (i in 1:N)
+    lambda[i] = b[1] + b[2]*X[i] + b[3]*f[i];
 }
 
 model {
-  for (n in 1:N)
-    Y[n] ~ poisson_log(lambda[n]);
+  for (i in 1:N)
+    Y[i] ~ poisson_log(lambda[i]);
 }
 
 generated quantities {
